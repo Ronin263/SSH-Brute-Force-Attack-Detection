@@ -140,9 +140,14 @@ This demonstrates a **defense-in-depth security model**.
 <img width="1400" height="371" alt="logi_ofiara" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/logi%20ofiara.jpg" />
   
 * Suricata alerts
-<img width="1400" height="371" alt="Suricata" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Suricata.jpg" />
-<img width="1400" height="371" alt="Suricata_syg" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/sygnature%20atack.jpg" />
+<img width="1400" height="371" alt="Suricata" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Suricata%201.jpg?raw=true" />
+<img width="1400" height="371" alt="Suricata_syg" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/sygnature%20atack.jpg?raw=true" />
+
 * Wazuh dashboard
+<img width="1400" height="371" alt="Wazuh" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%201.jpg?raw=true" />
+<img width="1400" height="371" alt="Wazuh_1" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%202.jpg?raw=true" />
+<img width="1400" height="371" alt="Wazuh_2" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%203.jpg?raw=true" />
+<img width="1400" height="371" alt="Wazuh_3" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh.jpg?raw=true" />
 
 ---
 
@@ -154,5 +159,5 @@ This project simulates a real-world brute force attack and shows how it can be d
 
 ## 👤 Author
 
-[Your Name]
+[Arek]
 Cybersecurity Enthusiast | SOC Analyst (aspiring)
