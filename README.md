@@ -137,6 +137,7 @@ This demonstrates a **defense-in-depth security model**.
 <img width="1400" height="371" alt="Kali" src="https://github.com/user-attachments/assets/74797b41-828f-4712-abc6-d96927b4acba" />
 
 * Debian logs
+
   
 
 
