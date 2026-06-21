@@ -137,13 +137,11 @@ This demonstrates a **defense-in-depth security model**.
 <img width="1400" height="371" alt="Kali" src="https://github.com/user-attachments/assets/74797b41-828f-4712-abc6-d96927b4acba" />
 
 * Debian logs
-
+<img width="1400" height="371" alt="logi_ofiara" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/logi%20ofiara.jpg" />
   
-
-
-
-
 * Suricata alerts
+<img width="1400" height="371" alt="Suricata" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Suricata.jpg" />
+<img width="1400" height="371" alt="Suricata_syg" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/sygnature%20atack.jpg" />
 * Wazuh dashboard
 
 ---
