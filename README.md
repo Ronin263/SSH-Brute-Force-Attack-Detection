@@ -118,6 +118,51 @@ This demonstrates a **defense-in-depth security model**.
 * Enable firewall rules (iptables / ufw)
 
 ---
+## 🛡️ Automated Incident Response — Fail2Ban & nftables
+
+### Objective
+
+Extend the detection workflow with automated response capabilities to temporarily block a source IP address after repeated failed SSH authentication attempts.
+
+### Configuration
+
+* **Detection tool:** Fail2Ban
+* **Log source:** systemd journal
+* **Firewall:** nftables
+* **Failed-attempt threshold:** 5
+* **Detection window:** 600 seconds
+* **Ban duration:** 600 seconds
+
+### Test Results
+
+The response mechanism was validated in the home lab using Kali Linux as the test source and Debian as the target server.
+
+1. Five failed SSH authentication attempts were generated.
+2. Fail2Ban detected the repeated failures.
+3. The source IP address was blocked through nftables.
+4. The block expired automatically after approximately 10 minutes.
+5. SSH connectivity was successfully restored.
+
+### Log Evidence
+
+```text
+2026-10-18 18:46:42 — Ban 192.168.0.197
+2026-10-18 18:56:42 — Unban 192.168.0.197
+```
+
+### Response Lifecycle
+
+**Detection → Automated Blocking → Temporary Containment → Automatic Unban → Connectivity Validation**
+
+This extension demonstrates a basic automated response workflow alongside the existing host-level, network-level, and SIEM detection components.
+
+### Validation Status
+
+* [x] Repeated failed SSH attempts detected
+* [x] Source IP blocked through nftables
+* [x] Automatic unblocking confirmed in logs
+* [x] SSH connectivity restored after the ban expired
+
 
 ## 🚀 Skills Demonstrated
 
