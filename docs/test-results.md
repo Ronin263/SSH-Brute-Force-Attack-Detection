@@ -256,7 +256,7 @@ The logs provide evidence of related activity involving the same test source IP.
 | Automatically remove the ban                             | PASS   |
 | Restore SSH connectivity                                 | PASS   |
 
-Observations and Limitations
+### Observations and Limitations
 
 * Wazuh successfully collected and analyzed SSH authentication events from the Debian target.
 
