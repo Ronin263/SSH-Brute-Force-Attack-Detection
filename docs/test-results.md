@@ -20,7 +20,7 @@ The test focused on validating the individual capabilities of these components a
 | Target server           | Debian 12        |
 | Test machine            | Kali Linux       |
 | Target IP (Kali Linux)  | `192.168.0.101`  |
-| Test source IP (Debian) | `192.168.0.197`  |
+| Test source IP (Kali)   | `192.168.0.197`  |
 | Wazuh Manager           | `192.168.0.223`  |
 | Wazuh Agent (Debian)    | `92.168.0.101`   |
 | Suricata                | `7.0.10`         | 
@@ -49,7 +49,7 @@ The SSH jail used the following parameters:
 | Jail                     | sshd                     |
 | Backend                  | systemd                  |
 | Failed-attempt threshold | 5                        |
-| Detection window         | 600 swconds              |
+| Detection window         | 600 seconds              |
 | Ban duration (bantime)   | 600 seconds              |
 | Firewall action          | nftables[type=multiport] |
 
@@ -129,7 +129,7 @@ Rule 2502 — Repeated authentication failures
 
 * Level: 10
 
-* *ource IP: 192.168.0.197
+* Source IP: 192.168.0.197
 
 * Destination user: root
 
@@ -137,13 +137,13 @@ Rule 2502 — Repeated authentication failures
 
 Event: PAM 2 more authentication failures
 
-![Wazuh Rule 5760 2502](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/43aaa39af91aa9f422390147613367f18bf62041/screenshots/siem%20analysis/Wazuh%202.jpg)
+![Wazuh Rule 5760 2502](../screenshots/siem-analysis/Wazuh2.jpg)
 
 This alert was generated after Wazuh received a PAM message reporting additional authentication failures during the same SSH session.
 
 The two alerts demonstrate that Wazuh successfully collected and analyzed both an individual failed authentication event and a related PAM message indicating repeated failures.
 
-![Wazuh ](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/2e9c5cc481647ee076c6d1851505676114117b43/screenshots/siem%20analysis/Wazuh%203.jpg)
+![Wazuh ](../screenshots/siem-analysis/Wazuh3.jpg)
 
 ### 4.2 Suricata Network Detection Evidence
 
@@ -161,7 +161,7 @@ These results confirm that Suricata monitored the relevant SSH network traffic a
 
 However, because the same signature also alerted on management-host traffic, its detection precision requires further tuning and validation.
 
-![Suricata Alerts ](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/c2edd87b74a1b58137c5ce4dd2656958813838d9/screenshots/network-detection/Suricata%201.jpg)
+![Suricata Alerts ](../screenshots/network-detection/Suricata.jpg) 
 
 ### 4.3 Fail2Ban Detection and Blocking
 
@@ -175,7 +175,7 @@ After five failed authentication attempts from 192.168.0.197, Fail2Ban detected 
 
 * Total bans: 1
 
-Currently banned: 1 during the active block
+* Currently banned: 1 during the active block
 
 The nftables ruleset confirmed that the source IP was present in the Fail2Ban-managed address set.
 
@@ -184,7 +184,7 @@ The active firewall configuration included the f2b-table table and the addr-set-
 This confirmed that the source IP was added to the firewall block list.
 
 Note: Fail2Ban performed the blocking action based on its own SSH jail configuration. The test did not establish an integration in which Wazuh triggered Fail2Ban.
-![Fail2Ban ](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/c2edd87b74a1b58137c5ce4dd2656958813838d9/screenshots/automated-response/fail2ban-detection_nftables.png)
+![Fail2Ban ](../screenshots/automated-response/fail2ban-detection_nftables.png)
 
 
 ## 5. Automatic Unblocking
@@ -208,7 +208,7 @@ After the ban expired:
 
 This confirmed that Fail2Ban automatically removed the temporary block after the configured ban period.
 
-![Fail2ban -Unban](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/c2edd87b74a1b58137c5ce4dd2656958813838d9/screenshots/automated-response/automatic-unban.png)
+![Fail2ban -Unban](../screenshots/automated-response/automatic-unban.png)
 
 ## 6. Recovery Validation
 
@@ -223,7 +223,7 @@ This confirmed that SSH connectivity was restored after the temporary block expi
 
 The recovery test validated that the automated containment mechanism did not permanently prevent the authorized test machine from accessing the target server.
 
-![ssh-recovery](https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/c2edd87b74a1b58137c5ce4dd2656958813838d9/screenshots/automated-response/ssh-connections-recovery.png)
+![ssh-recovery](../screenshots/automated-response/ssh-connections-recovery.png)
 
 
 ## 7. Timeline and Log Correlation
@@ -271,7 +271,7 @@ Observations and Limitations
 * The test did not validate a direct integration in which Wazuh triggers Fail2Ban.
 
 * The test was performed in a controlled home-lab environment. It does not establish production-scale effectiveness, detection accuracy across different attack patterns, or false-positive rates.
-## 8. Conclusion
+## 9. Conclusion
 
 The test successfully demonstrated a basic SSH brute-force detection and automated response workflow using Wazuh, Suricata, Fail2Ban, and nftables.
 
