@@ -21,10 +21,11 @@ The test focused on validating the individual capabilities of these components a
 | Test machine            | Kali Linux       |
 | Target IP (Kali Linux)  | `192.168.0.101`  |
 | Test source IP (Kali)   | `192.168.0.197`  |
+| Management host         | `192.168.0.195`  |
 | Wazuh Manager           | `192.168.0.223`  |
-| Wazuh Agent (Debian)    | `92.168.0.101`   |
 | Suricata                | `7.0.10`         | 
 | Wazuh Agent             | `4.13.1`         |
+| Fail2Ban version        | `1.0.2-2`        |
 | Monitored service       | SSH, TCP port 22 |
 | Detection and response  | Fail2Ban         |
 | Firewall enforcement    | nftables         |
