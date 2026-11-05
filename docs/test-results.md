@@ -23,6 +23,7 @@ The test focused on validating the individual capabilities of these components a
 | Test source IP (Kali)   | `192.168.0.197`  |
 | Management host         | `192.168.0.195`  |
 | Wazuh Manager           | `192.168.0.223`  |
+| Wazuh Agent IP (Debian)|| `192.168.0.101`  |
 | Suricata                | `7.0.10`         | 
 | Wazuh Agent             | `4.13.1`         |
 | Fail2Ban version        | `1.0.2-2`        |
@@ -136,7 +137,7 @@ Rule 2502 — Repeated authentication failures
 
 * Log source: journald
 
-Event: PAM 2 more authentication failures
+* Event: PAM 2 more authentication failures
 
 ![Wazuh Rule 5760 2502](../screenshots/siem-analysis/Wazuh2.jpg)
 
@@ -170,7 +171,7 @@ Fail2Ban independently monitored SSH authentication events through the systemd j
 
 After five failed authentication attempts from 192.168.0.197, Fail2Ban detected the repeated failures and applied a temporary block.
 
-* The Fail2Ban status reported:
+The Fail2Ban status reported:
 
 * Total failed attempts: 5
 
