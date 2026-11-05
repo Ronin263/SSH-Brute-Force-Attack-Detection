@@ -163,7 +163,7 @@ These results confirm that Suricata monitored the relevant SSH network traffic a
 
 However, because the same signature also alerted on management-host traffic, its detection precision requires further tuning and validation.
 
-![Suricata Alerts ](../screenshots/network-detection/Suricata.jpg) 
+![Suricata Alerts ](../screenshots/network-detection/Suricata1.jpg) 
 
 ### 4.3 Fail2Ban Detection and Blocking
 
