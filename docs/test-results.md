@@ -19,7 +19,7 @@ The test focused on validating the individual capabilities of these components a
 | ----------------------  | ---------------- |
 | Target server           | Debian 12        |
 | Test machine            | Kali Linux       |
-| Target IP (Kali Linux)  | `192.168.0.101`  |
+| Target IP (Debian)      | `192.168.0.101`  |
 | Test source IP (Kali)   | `192.168.0.197`  |
 | Management host         | `192.168.0.195`  |
 | Wazuh Manager           | `192.168.0.223`  |
