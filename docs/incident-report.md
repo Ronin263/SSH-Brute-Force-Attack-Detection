@@ -24,6 +24,27 @@ The test validated the detection, temporary blocking, automatic unblocking, and 
 
 ## 3. Detection
 
+The lab environment used multiple security tools to observe and analyze the simulated SSH brute-force activity.
+
+### 3.1 Host-Based Detection — Wazuh
+
+Wazuh collected SSH authentication events from the Debian system through the systemd journal.
+
+During the test, the following alerts were observed:
+
+- **Rule ID 5760:** `sshd: authentication failed.`
+- **Rule ID 2502:** `syslog: User missed the password more than one time.`
+
+Both alerts were associated with the same SSH authentication session and provided complementary information about the failed login activity.
+
+### 3.2 Network-Based Detection — Suricata
+
+Suricata monitored network traffic and generated an alert based on a custom SSH-related detection signature.
+
+The alert indicated potentially suspicious SSH activity. Network alerts were treated as detection indicators and correlated with host-based authentication logs.
+
+### 3.3 Automated Detection — Fail2Ban
+
 Fail2Ban monitored SSH authentication events through the systemd journal.
 
 The SSH jail used the following configuration:
@@ -33,6 +54,8 @@ The SSH jail used the following configuration:
 - **Ban duration:** 600 seconds
 - **Log source:** systemd journal
 - **Jail:** sshd
+
+After the configured threshold was reached, Fail2Ban triggered an automatic IP block through nftables.
 
 The Fail2Ban status confirmed five failed attempts and one ban.
 
