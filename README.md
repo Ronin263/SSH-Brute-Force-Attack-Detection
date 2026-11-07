@@ -100,7 +100,7 @@ Alert evidence is available in the screenshots below.
 
 ## 🔗 Correlation Analysis
 
-All systems confirmed the same attack:
+Data from All systems confirmed corelation the same attack:
 
 | Indicator | Value         |
 | --------- | ------------- |
@@ -218,6 +218,17 @@ Detailed documentation of the project and validation scenarios:
 ![Wazuh](../main/screenshots/siem-analysis/Wazuh1.jpg)
 ![Wazuh](../main/screenshots/siem-analysis/Wazuh2.jpg)
 ![Wazuh](../main/screenshots/siem-analysis/Wazuh3.jpg)
+
+* Fail2Ban / nftables
+![Fail2Ban detection and nftables](../main/screenshots/automated-response/fail2ban-detection_nftables.png)
+
+* Automatic unban
+![Automatic unban](../main/screenshots/automated-response/automatic-unban.png)
+
+* SSH conectivity recovery
+![SSH connectivity recovery](../main/screenshots/automated-response/ssh-connections-recovery.png)
+
+
 ---
 
 ## 💬 Summary
