@@ -8,7 +8,7 @@
 - **Target IP:** `192.168.0.101`
 - **Source IP:** `192.168.0.197` (Kali Linux)
 - **Affected service:** SSH (TCP/22)
-- **Detection and response tool:** Fail2Ban
+- **Automated response tool:** Fail2Ban
 - **Firewall:** nftables
 - **Status:** Resolved
 
@@ -79,21 +79,38 @@ The timeline is based on the Fail2Ban logs collected during the test on October 
 
 ## 6. Evidence
 
-The following entries were collected from the Fail2Ban logs:
+### 6.1 Wazuh Evidence
 
-- **Ban event:** 18:46:42 — `Ban 192.168.0.197`
-- **Unban event:** 18:56:42 — `Unban 192.168.0.197`
+The following screenshots show Wazuh alerts generated during the SSH brute-force simulation.
 
-These entries confirm that Fail2Ban applied the ban and subsequently removed it approximately 10 minutes later.
+- Rule ID 5760: `sshd: authentication failed.`
+- Rule ID 2502: `syslog: User missed the password more than one time.`
 
-The Fail2Ban status after the ban expired showed:
+Both alerts originated from the same SSH authentication session.
 
-- **Currently failed:** 0
-- **Total failed:** 5
-- **Currently banned:** 0
-- **Total banned:** 1
+![Wazuh authentication failure](../screenshots/siem-analysis/Wazuh2.jpg)
 
-The nftables address set was empty after the ban expired, confirming that the source IP was no longer blocked by this Fail2Ban action.
+![Wazuh multiple authentication failures](../screenshots/siem-analysis/Wazuh3.jpg)
+
+### 6.2 Suricata Evidence
+
+Suricata generated an alert based on a custom SSH-related detection signature during the test.
+
+![Suricata alert](../screenshots/network-detection/Suricata.jpg)
+
+### 6.3 Fail2Ban and nftables Evidence
+
+The screenshots demonstrate the detection of repeated SSH authentication failures and the resulting IP block enforced through nftables.
+
+![Fail2Ban detection and nftables](../screenshots/automated-response/fail2ban-detection_nftables.png)
+
+### 6.4 Automatic Unban and Recovery Evidence
+
+The following screenshots demonstrate the automatic removal of the IP block after the configured ban duration and the subsequent restoration of SSH connectivity.
+
+![Automatic unban](../screenshots/automated-response/automatic-unban.png)
+
+![SSH connectivity recovery](../screenshots/automated-response/ssh-connections-recovery.png)
 
 ## 7. Recovery and Validation
 
