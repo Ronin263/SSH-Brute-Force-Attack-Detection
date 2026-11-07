@@ -8,17 +8,25 @@ This project demonstrates a **realistic SSH brute force attack simulation** in a
 * 🌐 NIDS: Suricata
 * 🖥️ Host logs: Debian (journalctl)
 * ⚔️ Attack tool: Hydra (Kali Linux)
+* 🛡️ Automated response: Fail2Ban
+* 🔥 Firewall enforcement: nftables
 
 The goal was to simulate an attack and validate detection across **network, host, and SIEM layers**, similar to real SOC operations.
 
 ---
-
 ## 🧪 Lab Architecture
 
-* **Attacker:** Kali Linux (192.168.0.197)
-* **Target:** Debian Server (192.168.0.101)
-* **SIEM:** Wazuh
-* **NIDS:** Suricata
+| Component | Configuration |
+|---|---|
+| Attacker | Kali Linux — `192.168.0.197` |
+| Target server | Debian 12 — `192.168.0.101` |
+| SIEM | Wazuh |
+| NIDS | Suricata 7.0.10 |
+| Wazuh Agent | 4.13.1 |
+| Automated response | Fail2Ban 1.0.2-2 |
+| Firewall | nftables |
+| Log source | systemd journal |
+| Monitored service | SSH — TCP port 22 |
 
 ---
 
@@ -37,6 +45,14 @@ hydra -l root -P rockyou.txt ssh://192.168.0.101
 * 🎯 Target: SSH (port 22)
 * 👤 Account targeted: root
 
+### Attack Simulation Scope
+
+This test focused on generating repeated SSH authentication failures
+using Hydra and observing the resulting events across the host,
+network, and SIEM monitoring layers.
+
+The automated Fail2Ban response was validated separately
+under a dedicated test scenario described below.
 ---
 
 ## 🔍 Detection Results
@@ -55,18 +71,15 @@ hydra -l root -P rockyou.txt ssh://192.168.0.101
 
 ### 🌐 Network-Level Detection (Suricata)
 
-* Detected high-frequency SSH traffic
-* Alerts generated based on threshold rules
-* Logs available in:
+Suricata monitored network traffic during the SSH brute-force simulation.
 
-  * `fast.log`
-  * `eve.json`
+A custom SSH-related detection signature generated an alert
+for potentially suspicious SSH activity.
 
-Example alert:
+The alert was treated as a network-level detection indicator
+and correlated with host-based authentication logs.
 
-```
-ET SCAN SSH Brute Force Attempt
-```
+Alert evidence is available in the screenshots below.
 
 ---
 
@@ -115,7 +128,7 @@ This demonstrates a **defense-in-depth security model**.
 * Install and configure fail2ban
 * Limit login attempts
 * Change default SSH port
-* Enable firewall rules (iptables / ufw)
+* Configure firewall rules using nftables.
 
 ---
 ## 🛡️ Automated Incident Response — Fail2Ban & nftables
@@ -135,7 +148,10 @@ Extend the detection workflow with automated response capabilities to temporaril
 
 ### Test Results
 
-The response mechanism was validated in the home lab using Kali Linux as the test source and Debian as the target server.
+This was a separate validation scenario from the Hydra attack simulation.
+
+The test focused on verifying the automated response to repeated
+SSH authentication failures using the configured Fail2Ban SSH jail.
 
 1. Five failed SSH authentication attempts were generated.
 2. Fail2Ban detected the repeated failures.
@@ -163,7 +179,13 @@ This extension demonstrates a basic automated response workflow alongside the ex
 * [x] Automatic unblocking confirmed in logs
 * [x] SSH connectivity restored after the ban expired
 
+## 📚 Documentation
 
+Detailed documentation of the project and validation scenarios:
+
+* [Incident Report](docs/incident-report.md) — incident overview, detection, response, evidence, and recovery.
+* [Test Results](docs/test-results.md) — technical test results, log correlation, and validation of the automated response workflow.
+  
 ## 🚀 Skills Demonstrated
 
 * SOC Analysis
@@ -174,12 +196,16 @@ This extension demonstrates a basic automated response workflow alongside the ex
 * Threat Detection & Correlation
 * MITRE ATT&CK framework
 * Cybersecurity Lab Setup
-
+* Automated Incident Response
+* Linux Firewall Management (nftables)
+* Fail2Ban Configuration and Validation
+* Incident Timeline Analysis
+* Security Event Investigation
 ---
 
 ## 📎 Screenshots
 * Hydra attack
-<img width="1400" height="371" alt="Kali" src="https://github.com/user-attachments/assets/74797b41-828f-4712-abc6-d96927b4acba" />
+![Hydra](../screenshots/attack/Kali.jpg)
 
 * Debian logs
 <img width="1400" height="371" alt="logi_ofiara" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/logi%20ofiara.jpg" />
@@ -198,7 +224,18 @@ This extension demonstrates a basic automated response workflow alongside the ex
 
 ## 💬 Summary
 
-This project simulates a real-world brute force attack and shows how it can be detected using multiple security layers. It reflects practical SOC workflows including detection, analysis, and correlation of security events.
+This project demonstrates a multi-layered SSH brute-force detection
+and automated response workflow in a controlled cybersecurity home lab.
+
+The environment combines Wazuh for host-based security event analysis,
+Suricata for network monitoring, Fail2Ban for automated response,
+and nftables for firewall enforcement.
+
+The project includes a Hydra-based SSH attack simulation and a separate
+validation of automatic IP blocking, unblocking, and SSH connectivity recovery.
+
+It demonstrates practical SOC skills in security monitoring,
+log analysis, event correlation, incident response, and technical documentation.
 
 ---
 
