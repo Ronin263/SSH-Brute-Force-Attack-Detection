@@ -205,21 +205,19 @@ Detailed documentation of the project and validation scenarios:
 
 ## 📎 Screenshots
 * Hydra attack
-![Hydra](../screenshots/attack/Kali.jpg)
+![Hydra](../main/screenshots/Kali.jpg)
 
 * Debian logs
-<img width="1400" height="371" alt="logi_ofiara" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/logi%20ofiara.jpg" />
-  
+![Debian Logs](../main/screenshots/logi_ofiara.png)
+
 * Suricata alerts
-<img width="1400" height="371" alt="Suricata" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Suricata%201.jpg?raw=true" />
-<img width="1400" height="371" alt="Suricata_syg" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/sygnature%20atack.jpg?raw=true" />
+![Suricata alerts](../main/screenshots/network-detection/Suricata1.jpg)
 
 * Wazuh dashboard
-<img width="1400" height="371" alt="Wazuh" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%201.jpg?raw=true" />
-<img width="1400" height="371" alt="Wazuh_1" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%202.jpg?raw=true" />
-<img width="1400" height="371" alt="Wazuh_2" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh%203.jpg?raw=true" />
-<img width="1400" height="371" alt="Wazuh_3" src="https://github.com/Ronin263/SSH-Brute-Force-Attack-Detection/blob/main/Wazuh.jpg?raw=true" />
-
+![Wazuh](../main/screenshots/siem-analysis/Wazuh.jpg)
+![Wazuh](../main/screenshots/siem-analysis/Wazuh1.jpg)
+![Wazuh](../main/screenshots/siem-analysis/Wazuh2.jpg)
+![Wazuh](../main/screenshots/siem-analysis/Wazuh3.jpg)
 ---
 
 ## 💬 Summary
