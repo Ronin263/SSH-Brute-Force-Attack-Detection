@@ -76,6 +76,7 @@ The nftables ruleset confirmed that the source IP address was added to the Fail2
 | After unblocking | SSH connectivity from Kali Linux to Debian was successfully restored |
 
 The timeline is based on the Fail2Ban logs collected during the test on October 18, 2026.
+The source IP address remained blocked for the configured 600-second ban duration.
 
 ## 6. Evidence
 
@@ -153,4 +154,4 @@ The following capabilities were successfully validated:
 - Automatic unblocking after the configured ban duration.
 - Restoration of SSH connectivity after the ban expired.
 
-This project demonstrates a basic automated incident response workflow in a controlled cybersecurity home lab using Fail2Ban and nftables.
+This project demonstrates a multi-layered SSH attack detection and automated response workflow in a controlled cybersecurity home lab, combining Wazuh, Suricata, Fail2Ban, and nftables.
