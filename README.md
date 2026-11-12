@@ -208,7 +208,7 @@ Detailed documentation of the project and validation scenarios:
 ![Hydra](../main/screenshots/Kali.jpg)
 
 * Debian logs
-![Debian Logs](../main/screenshots/logi_ofiara.png)
+![Debian Logs](../main/screenshots/victim-logs.png)
 
 * Suricata alerts
 ![Suricata alerts](../main/screenshots/network-detection/Suricata1.jpg)
