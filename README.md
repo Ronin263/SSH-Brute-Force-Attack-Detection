@@ -250,5 +250,6 @@ log analysis, event correlation, incident response, and technical documentation.
 
 ## 👤 Author
 
-[Arek]
-Cybersecurity Enthusiast | SOC Analyst (aspiring)
+[Arkadiusz Rytych]
+[Linkedin](http://linkedin.com/in/arkadiusz-rytych-60644bb7) 
+| Cybersecurity Enthusiast | SOC Analyst  | L2 Infrastructure & Security Operation | ISC2 CC
