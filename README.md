@@ -100,7 +100,7 @@ Alert evidence is available in the screenshots below.
 
 ## 🔗 Correlation Analysis
 
-Data from All systems confirmed corelation the same attack:
+Data from All systems confirmed corelation ofthe same attack:
 
 | Indicator | Value         |
 | --------- | ------------- |
@@ -225,7 +225,7 @@ Detailed documentation of the project and validation scenarios:
 * Automatic unban
 ![Automatic unban](../main/screenshots/automated-response/automatic-unban.png)
 
-* SSH conectivity recovery
+* SSH connectivity recovery
 ![SSH connectivity recovery](../main/screenshots/automated-response/ssh-connections-recovery.png)
 
 
